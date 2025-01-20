@@ -1,0 +1,43 @@
+pipeline:
+  name: umgithubrepo
+  identifier: umgithubrepo
+  projectIdentifier: UserService
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.ARVINDUMREPOPTA
+        repoName: user-management-repo
+        build: <+input>
+  stages:
+    - stage:
+        name: Build And Run
+        identifier: Build_And_Run
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Build and Run
+                  identifier: Build_and_Run
+                  spec:
+                    shell: Sh
+                    command: |-
+                      docker images
+                      docker build -t userserviceimage .
+                      docker tag userserviceimage arvind11mca/servicemonitor:latest
+                      docker images
