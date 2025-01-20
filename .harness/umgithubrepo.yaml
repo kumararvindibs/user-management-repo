@@ -38,6 +38,6 @@ pipeline:
                     shell: Sh
                     command: |-
                       docker images
-                      docker build -t userserviceimagegitrepo .
-                      docker tag userserviceimagegitrepo arvind11mca/usermanagmentgithub:latest
+                      docker build -t userserviceimage .
+                      docker tag userserviceimage arvind11mca/usermanagmentgithub:latest
                       docker images
