@@ -1,0 +1,17 @@
+infrastructureDefinition:
+  name: aws-infra
+  identifier: awsinfra
+  orgIdentifier: default
+  projectIdentifier: UserService
+  environmentRef: dev
+  deploymentType: Ssh
+  type: SshWinRmAws
+  spec:
+    credentialsRef: EC2AWSSSH
+    connectorRef: userserviceEC2
+    region: us-east-1
+    awsInstanceFilter:
+      tags: {}
+    hostConnectionType: PublicIP
+    instanceType: Aws
+  allowSimultaneousDeployments: false
