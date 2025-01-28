@@ -1,0 +1,9 @@
+service:
+  name: user-service
+  identifier: userservice
+  serviceDefinition:
+    type: Ssh
+    spec: {}
+  gitOpsEnabled: false
+  orgIdentifier: default
+  projectIdentifier: UserService
